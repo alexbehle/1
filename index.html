@@ -11,31 +11,61 @@
     --text: #111111;
     --muted: #6b6b6b;
     --link: #111111;
+    --accent: #5b4b8a;
+    --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
   }
 
   * {
     box-sizing: border-box;
+    font-family: var(--font);
+  }
+
+  html {
+    scroll-behavior: smooth;
   }
 
   html, body {
     margin: 0;
     padding: 0;
     background: var(--bg);
-    height: 100%;
   }
 
   body {
+    color: var(--text);
+  }
+
+  /* top-right nav, small and out of the way */
+  .site-nav {
+    position: fixed;
+    top: 24px;
+    right: 28px;
+    z-index: 10;
+  }
+
+  .site-nav a {
+    font-size: 13px;
+    letter-spacing: 0.04em;
+    text-transform: lowercase;
+    color: var(--muted);
+    text-decoration: none;
+  }
+
+  .site-nav a:hover,
+  .site-nav a:focus {
+    color: var(--accent);
+  }
+
+  /* hero section = exactly what the homepage looked like before, unchanged */
+  .hero {
     display: flex;
     align-items: center;
     min-height: 100vh;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-    color: var(--text);
   }
 
   main {
     max-width: 480px;
     margin: 0 auto;
-    padding: 32px;
+    padding: 40px;
   }
 
   p {
@@ -66,13 +96,90 @@
     outline: 2px solid var(--text);
     outline-offset: 3px;
   }
+
+  /* now section, further down the same page */
+  #now {
+    min-height: 100vh;
+    padding: 80px 0;
+  }
+
+  .now-wrap {
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+
+  .now-wrap h1 {
+    font-size: 15px;
+    text-transform: lowercase;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    font-weight: 500;
+    margin: 0 0 28px 0;
+  }
+
+  .now-wrap ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .now-wrap li {
+    font-size: 18px;
+    line-height: 1.7;
+    padding-left: 20px;
+    position: relative;
+    margin-bottom: 14px;
+  }
+
+  .now-wrap li::before {
+    content: "\2022";
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--accent);
+    font-size: 20px;
+  }
+
+  .now-updated {
+    margin-top: 36px;
+    font-size: 13px;
+    color: var(--muted);
+  }
+
 </style>
 </head>
 <body>
-  <main>
-    <p>Alex Behle is an executive assistant at Khosla Ventures, based in New York.</p>
-    <p>Previously, six years in exec ops in the U.S. Senate.</p>
-    <p><a href="https://www.linkedin.com/in/alexbehle" target="_blank" rel="noopener noreferrer">linkedin.com/in/alexbehle</a></p>
-  </main>
+
+  <nav class="site-nav">
+    <a href="#now">now</a>
+  </nav>
+
+  <section id="home" class="hero">
+    <main>
+      <p>Alex Behle is an executive assistant at Khosla Ventures, based in New York.</p>
+      <p>Previously, six years in exec ops in the U.S. Senate.</p>
+      <p><a href="https://www.linkedin.com/in/alexbehle" target="_blank" rel="noopener noreferrer">linkedin.com/in/alexbehle</a></p>
+    </main>
+  </section>
+
+  <section id="now">
+    <div class="now-wrap">
+      <h1>What I'm doing now</h1>
+      <ul>
+        <li>Running and lifting at <a href="https://www.barrys.com/studio/noho" target="_blank" rel="noopener noreferrer">Barry's Noho</a></li>
+        <li>Waiting in line at <a href="https://www.tompkinssquarebagels.com/" target="_blank" rel="noopener noreferrer">Tompkins Square Bagels</a></li>
+        <li>Drinking <a href="https://www.stokbrew.com/" target="_blank" rel="noopener noreferrer">Stok</a> cold brew coffee</li>
+        <li>Cheering for the <a href="https://www.commanders.com/" target="_blank" rel="noopener noreferrer">Washington Commanders</a></li>
+        <li>Listening to <a href="https://zaralarsson.com/" target="_blank" rel="noopener noreferrer">Zara Larsson</a></li>
+        <li>Playing <a href="https://apps.apple.com/us/app/nyt-crossplay-word-games/id6615086509" target="_blank" rel="noopener noreferrer">Crossplay</a></li>
+        <li>Taking Amtrak's <a href="https://www.amtrak.com/northeast-regional-train" target="_blank" rel="noopener noreferrer">Northeast Regional</a> train</li>
+        <li>Watching <a href="https://www.youtube.com/@pivot" target="_blank" rel="noopener noreferrer">Pivot</a> with Kara Swisher and Scott Galloway</li>
+      </ul>
+      <p class="now-updated">Updated: July 12, 2026</p>
+      <p class="now-updated">This is a <a href="https://nownownow.com/about" target="_blank" rel="noopener noreferrer">now page</a>, inspired by <a href="https://sive.rs/" target="_blank" rel="noopener noreferrer">Derek Sivers</a>.</p>
+    </div>
+  </section>
+
 </body>
 </html>
